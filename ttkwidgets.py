@@ -37,9 +37,12 @@ class App:
 
 	def switchExample(self, event):
 		print("In App.switchExample")
+		old_widget = self.testlabel
+
 		index = self.widgetlist.curselection()
 		newText = self.widgetlist.get(index) + " was selected."
 		self.testlabel = ttk.Label(self.widgetframe, text=newText)
+		old_widget.destroy()
 		self.testlabel.grid(column=0, row=0)
 		return
 
