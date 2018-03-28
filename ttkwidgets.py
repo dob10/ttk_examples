@@ -47,6 +47,32 @@ class App:
 				self.showEntry()
 			elif widgname == "Frame":
 				self.showFrame()
+			elif widgname == "Label":
+				self.showLabel()
+			elif widgname == "Labelframe":
+				self.showLabelframe()
+			elif widgname == "Menubutton":
+				self.showMenubutton()
+			elif widgname == "PanedWindow":
+				self.showPanedWindow()
+			elif widgname == "Radiobutton":
+				self.showRadiobutton()
+			elif widgname == "Scale":
+				self.showScale()
+			elif widgname == "Scrollbar":
+				self.showScrollbar()
+			elif widgname == "Combobox":
+				self.showCombobox()
+			elif widgname == "Notebook":
+				self.showNotebook()
+			elif widgname == "Progressbar":
+				self.showProgressbar()
+			elif widgname == "Separator":
+				self.showSeparator()
+			elif widgname == "Sizegrip":
+				self.showSizegrip()
+			elif widgname == "Treeview":
+				self.showTreeview()
 
 			if old_widget is not None:
 				old_widget.destroy()
@@ -80,7 +106,8 @@ class App:
 		self.selected_widget = ttk.Frame(self.widgetframe, **options)
 
 	def showLabel(self):
-		pass
+		options = { "text":"This is a Label" }
+		self.selected_widget = ttk.Label(self.widgetframe, **options)
 
 	def showLabelframe(self):
 		pass
