@@ -131,10 +131,32 @@ class App:
 		menu.add_radiobutton(label="radiobutton")
 
 	def showPanedWindow(self):
-		pass
+		options = { "height":250,
+					"width": 450,
+					"orient":VERTICAL}
+		self.selected_widget = ttk.PanedWindow(self.widgetframe, **options)
+		f1 = ttk.Labelframe(self.selected_widget, text="pane1", width=100, height=100)
+		f2 = ttk.Labelframe(self.selected_widget, text="pane2", width=100, height=100)
+
+		self.selected_widget.add(f1)
+		self.selected_widget.add(f2)
 
 	def showRadiobutton(self):
-		pass
+		rbframe = ttk.Frame(self.widgetframe)
+		controlvar = IntVar()
+		options = { "text": "option1",
+					"variable": controlvar,
+					"value": 0 }
+		rb1 = ttk.Radiobutton(rbframe, **options)
+		rb2 = ttk.Radiobutton(rbframe, text="option2", variable=controlvar, value=1)
+		rb3 = ttk.Radiobutton(rbframe, text="option3", variable=controlvar, value=2)
+
+		rb1.grid(row=0, column=0)
+		rb2.grid(row=1, column=0)
+		rb3.grid(row=2, column=0)
+
+
+		self.selected_widget = rbframe
 
 	def showScale(self):
 		pass
