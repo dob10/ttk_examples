@@ -110,10 +110,25 @@ class App:
 		self.selected_widget = ttk.Label(self.widgetframe, **options)
 
 	def showLabelframe(self):
-		pass
+		options = { "text":"This is a Labelframe",
+					"width": "250px",
+					"height": "150px",
+					"borderwidth":2 }
+		self.selected_widget = ttk.Labelframe(self.widgetframe, **options)
 
 	def showMenubutton(self):
-		pass
+		options = {"text": "Menubutton"}
+		self.selected_widget = ttk.Menubutton(self.widgetframe, **options)
+
+		# self.selected_widget.menu = Menu(self.selected_widget, tearoff=0)
+		menu = Menu(self.selected_widget, tearoff=0)
+		self.selected_widget["menu"] = menu
+		menu.add_cascade(label="option1")
+		menu.add_cascade(label="option2")
+		menu.add_separator()
+		menu.add_checkbutton(label="checkbutton")
+		menu.add_command(label="command")
+		menu.add_radiobutton(label="radiobutton")
 
 	def showPanedWindow(self):
 		pass
