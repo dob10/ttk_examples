@@ -103,6 +103,21 @@ class App:
 	def showCombobox(self):
 		pass
 
+	def showNotebook(self):
+		pass
+
+	def showProgressbar(self):
+		pass
+
+	def showSeparator(self):
+		pass
+
+	def showSizegrip(self):
+		pass
+
+	def showTreeview(self):
+		pass
+
 ######## End of App
 
 
