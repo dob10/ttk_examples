@@ -231,7 +231,47 @@ class App:
 		self.selected_widget = mf
 
 	def showTreeview(self):
-		pass
+		# Pretty complex, different ways to do this
+		tree_options = {	"columns": ("name", "size", "date"),
+							"displaycolumns": "#all",
+							"height": 20 }
+		tree = ttk.Treeview(self.widgetframe, **tree_options)
+		tree.heading("name", text="Name")
+		tree.heading("size", text="Size")
+		tree.heading("date", text="Date")
+		# tree.column("name")  --> returns dictionary of column cid="name", with option/value pairs
+		# tree.column("name", option="width") --> returns value of option "width" from column cid="name"
+		# tree.column("name", anchor='e', width=100) --> sets values of options for column cid="name"
+		tree.column("#0", width=40)
+		tree.column("name", width=100)
+		tree.column("size", width=80)
+		tree.column("date", width=80)
+
+
+		# add top level item
+		values0 = ("Top Level", "", "")
+		tree.insert('', "end", "top", values=values0, open=True)
+
+		
+		# add two children below top, with first being open
+		values1 = ("Child1", "", "1990")
+		values2 = ("Child2", "", "1992")
+
+		child1 = tree.insert("top", 0, values=values1, open=True)
+		tree.insert("top", 1, "second", values=values2, open=False)
+
+		# add two child leaf nodes to first
+		values3 = ("Grand1", "8kb", "2000")
+		values4 = ("Grand2", "10kb", "2001")
+
+		tree.insert(child1, "end", values=values3)
+		tree.insert(child1, "end", values=values4)
+
+		# add one child leaf node to second
+		values5 = ("Grand3", "4kb", "2002")
+		tree.insert("second", 0, values=values5)
+
+		self.selected_widget = tree
 
 ######## End of App
 
