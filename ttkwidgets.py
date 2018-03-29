@@ -183,10 +183,28 @@ class App:
 		self.selected_widget = cbox
 
 	def showNotebook(self):
-		pass
+		options = { "width": 250}
+		notebook = ttk.Notebook(self.widgetframe, **options)
+		f1 = ttk.Frame(notebook)
+		f2 = ttk.Frame(notebook)
+		f3 = ttk.Frame(notebook)
+		notebook.add(f1, text="one")
+		notebook.add(f2, text="two")
+		notebook.add(f3, text="three")
+
+		self.selected_widget = notebook
 
 	def showProgressbar(self):
-		pass
+		ctrlvar = DoubleVar()
+		options = { "mode": "determinate",	# can also be "indeterminate"
+					"orient": HORIZONTAL,
+					"length": 200,
+					"maximum": 100,
+					"variable": ctrlvar }
+		pbar = ttk.Progressbar(self.widgetframe, **options)
+		pbar.start()
+
+		self.selected_widget = pbar
 
 	def showSeparator(self):
 		pass
