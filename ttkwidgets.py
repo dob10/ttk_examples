@@ -207,7 +207,19 @@ class App:
 		self.selected_widget = pbar
 
 	def showSeparator(self):
-		pass
+		mf = ttk.Frame(self.widgetframe)
+		f1 = ttk.Label(mf, text="Label 1")
+
+
+		options = { "orient": HORIZONTAL }
+		sep = ttk.Separator(mf, **options)
+		f2 = ttk.Label(mf, text="Label 2")
+
+		f1.grid(row=0)
+		sep.grid(row=1, sticky="ew") # Important: sticky is what makes the seperator go from edge to edge
+		f2.grid(row=2)
+
+		self.selected_widget = mf
 
 	def showSizegrip(self):
 		pass
