@@ -222,7 +222,13 @@ class App:
 		self.selected_widget = mf
 
 	def showSizegrip(self):
-		pass
+		mf = ttk.Frame(self.widgetframe)
+
+		# TODO: Sizegrip is bit of a buggy mess; figure out how to fix?
+		options = {}
+		sg = ttk.Sizegrip(mf)
+		sg.grid(row=999, column=999, sticky=(S,E))
+		self.selected_widget = mf
 
 	def showTreeview(self):
 		pass
