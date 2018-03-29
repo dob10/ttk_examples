@@ -143,13 +143,13 @@ class App:
 
 	def showRadiobutton(self):
 		rbframe = ttk.Frame(self.widgetframe)
-		controlvar = IntVar()
+		ctrlvar = IntVar()
 		options = { "text": "option1",
-					"variable": controlvar,
+					"variable": ctrlvar,
 					"value": 0 }
 		rb1 = ttk.Radiobutton(rbframe, **options)
-		rb2 = ttk.Radiobutton(rbframe, text="option2", variable=controlvar, value=1)
-		rb3 = ttk.Radiobutton(rbframe, text="option3", variable=controlvar, value=2)
+		rb2 = ttk.Radiobutton(rbframe, text="option2", variable=ctrlvar, value=1)
+		rb3 = ttk.Radiobutton(rbframe, text="option3", variable=ctrlvar, value=2)
 
 		rb1.grid(row=0, column=0)
 		rb2.grid(row=1, column=0)
@@ -159,13 +159,28 @@ class App:
 		self.selected_widget = rbframe
 
 	def showScale(self):
-		pass
+		ctrlvar = DoubleVar()
+		options = { "orient": HORIZONTAL,
+					"from_":0.0,
+					"to": 10.0,
+					"value": 5.0,
+					"variable": ctrlvar}
+		scl = ttk.Scale(self.widgetframe, **options)
+
+		self.selected_widget = scl
 
 	def showScrollbar(self):
-		pass
+		options = { "orient": VERTICAL }
+		scrllbar = ttk.Scrollbar(self.widgetframe, **options)
+
+		self.selected_widget = scrllbar
 
 	def showCombobox(self):
-		pass
+		str_var = StringVar()
+		options = { "textvariable": str_var }
+		cbox = ttk.Combobox(self.widgetframe, **options)
+
+		self.selected_widget = cbox
 
 	def showNotebook(self):
 		pass
